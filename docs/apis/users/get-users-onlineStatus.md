@@ -6,6 +6,6 @@
 // ResponseObject
 [{
   id: 'xxxxx-xxxx-xxxxxxx',
-  onlineStatus: 'yes' || 'no',
+  onlineStatus: 'y/n',
 }]
 ```
