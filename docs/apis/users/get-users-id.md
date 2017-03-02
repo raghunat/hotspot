@@ -1,6 +1,6 @@
 # /users/:id is used when showing a users individual profile in the UI
 
-```
+```javascript
 // GET /users/:id RequestObject:
 // none, just simple get
 // ResponseObject
