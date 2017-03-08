@@ -1,4 +1,5 @@
->/users/:id is used when showing a users individual profile in the UI
+
+# /users/:id is used when showing a users individual profile in the UI
 
 ```javascript
 // GET /users/:id RequestObject:
@@ -7,7 +8,9 @@
 [{
   name: 'Professor',
   id: 'xxxxx-xxxx-xxxxxxx',
-  current_location: 'Fenton-Hall',
-  username: 'professor1234'
+  currentLocation: 'Starbucks',
+  favoriteLocation: 'Tim Hortons',
+  username: 'Professor1234',
+  onlineStatus: 'Yes',
 }]
 ```

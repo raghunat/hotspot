@@ -1,4 +1,4 @@
->/users/:id/:current_location is used when displaying the users current location in the UI
+# /users/:id/:currentLocation is used when displaying the users current location in the UI
 
 ```javascript
 // GET /user/:id/:currentLocation RequestObject:
@@ -6,6 +6,6 @@
 // ResponseObject
 [{
   id: 'xxxxx-xxxx-xxxxxxx',
-  current_location: 'Fenton-Hall',
+  currentLocation: 'Starbucks',
 }]
 ```

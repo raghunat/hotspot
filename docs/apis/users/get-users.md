@@ -1,4 +1,5 @@
->/users/:id is used when showing a users individual profile in the UI
+
+# /users is used when listing users of the application in the UI.
 
 ```javascript
 // GET /users RequestObject:
@@ -6,8 +7,6 @@
 // ResponseObject
 [{
   name: 'Professor',
-  id: 'xxxxx-xxxx-xxxxxxx',
-  current_location: 'Fenton-Hall',
-  username: 'professor1234'
+  id: 'xxxxx-xxxx-xxxxxxx'
 }]
 ```
