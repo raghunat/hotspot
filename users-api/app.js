@@ -15,6 +15,5 @@ app.use(bodyParser.json());
 // Load in routes:
 app.get('/alive', require('./api/alive.js')());
 
-
 // only bootstrapped, not run (for testing)
 module.exports = app;
