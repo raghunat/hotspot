@@ -1,4 +1,3 @@
-
 # /users/:id is used when showing a users individual profile in the UI
 
 ```javascript
