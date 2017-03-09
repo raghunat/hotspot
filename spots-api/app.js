@@ -15,6 +15,8 @@ app.use(bodyParser.json());
 // Load in routes:
 app.get('/alive', require('./api/alive.js')());
 
+app.get('/spots/:id', require('./api/get-spot.js')());
+
 
 // only bootstrapped, not run (for testing)
 module.exports = app;
