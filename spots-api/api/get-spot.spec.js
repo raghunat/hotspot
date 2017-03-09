@@ -9,10 +9,7 @@ describe('/spots/:id', (req, res) => {
       .end(err, res) => {
         res.json.should.equal({
           "id": `${req.params.id}`,
-          "location": {
-            "latitude": "xx.xx",
-            "longitude": "xx.xx"
-          },
+          "location": [xx.xx, xx.xx],
           "name": "xxxx",
           "chekcIns": "xxxx"
         });
