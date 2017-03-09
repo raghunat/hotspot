@@ -5,12 +5,11 @@ const supertest = require('supertest');
 describe('/get-user', () => {
     it('should return a users individual data', done => {
       supertest(app)
-      .get('/get-user')
+      .get('/users/123')
       .end((err, res) => {
-        res.text.should.equal(
-          username: 'Username1234'
-          password: 'someawesomepassword'
-          email: 'email@email.com');
+        res.body.username.should.equal('Username1234');
+        res.body.password.should.equal('someawesomepassword');
+        res.body.email.should.equal('email@email.com');
         done();
       });
     });
