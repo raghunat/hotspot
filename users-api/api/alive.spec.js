@@ -1,6 +1,6 @@
-const app  = require('../app.js')
-const should = require('should')
-const suptertest = require('supertest')
+const app = require('../app.js');
+const should = require('should');
+const supertest = require('supertest');
 
 describe('/alive', () => {
   it('should return an alive message', done => {
