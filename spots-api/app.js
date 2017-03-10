@@ -1,7 +1,3 @@
-// app.js
-// Bootstrapping the express application
-// Loads all routes
-
 const app = require('express')();
 const cors = require('cors');
 const bodyParser = require('body-parser');
@@ -15,6 +11,7 @@ app.use(bodyParser.json());
 // Load in routes:
 app.get('/alive', require('./api/alive.js')());
 app.get('/spots', require('./api/get-spots.js')());
+app.post('/spots', require('./api/post-spots.js')());
 
 // only bootstrapped, not run (for testing)
 module.exports = app;
