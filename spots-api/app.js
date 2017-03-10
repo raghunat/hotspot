@@ -10,6 +10,7 @@ app.use(bodyParser.json());
 
 // Load in routes:
 app.get('/alive', require('./api/alive.js')());
+app.get('/spots', require('./api/get-spots.js')());
 app.post('/spots', require('./api/post-spots.js')());
 
 // only bootstrapped, not run (for testing)
