@@ -4,9 +4,9 @@ module.exports = function() {
     //
     res.json({
           "id": `${req.params.id}`,
-          "location": [xx.xx, xx.xx],
-          "name": "xxxx",
-          "chekcIns": "xxxx"
+          "location": [12.34, 56.78],
+          "name": "alsufyani",
+          "chekcIns": "true"
       });
   }
 }

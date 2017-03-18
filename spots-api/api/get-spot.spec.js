@@ -5,14 +5,9 @@ const supertest = require('supertest');
 describe('/spots/:id', (req, res) => {
   it('should return a json object', done => {
     supertest(app)
-      .get('/spots/:id')
+      .get('/spots/1')
       .end(err, res) => {
-        res.json.should.equal({
-          "id": `${req.params.id}`,
-          "location": [xx.xx, xx.xx],
-          "name": "xxxx",
-          "chekcIns": "xxxx"
-        });
+        res.body.id.should.equal('1');
         done();
       }
   })
