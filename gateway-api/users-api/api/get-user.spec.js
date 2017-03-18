@@ -2,7 +2,7 @@ const app = require('../app.js');
 const should = require('should');
 const supertest = require('supertest');
 
-describe('/get-user', () => {
+describe('/users/:id', () => {
     it('should return a users individual data', done => {
       supertest(app)
       .get('/users/123')
