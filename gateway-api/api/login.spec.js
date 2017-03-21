@@ -8,7 +8,6 @@ describe('/login', () => {
       .post('/login')
       .end((err, res) => {
         res.body.email.should.equal('string@.com')
-        res.body.password.should.equal('string')
         done();
       });
   });
