@@ -6,10 +6,6 @@ describe('/login', () => {
   it('login', done => {
     supertest(app)
       .post('/login')
-      .send({
-      "email":'string@.com',
-      "password":'string'
-    })
       .end((err, res) => {
         res.body.email.should.equal('string@.com')
         res.body.password.should.equal('string')

@@ -3,7 +3,6 @@ module.exports = function() {
   return function(req, res) {
     res.json({
       "email":'string@.com',
-      "password":'string'
     });
   }
 }
