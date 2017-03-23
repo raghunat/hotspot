@@ -1,4 +1,3 @@
-
 // app.js
 // Bootstrapping the express application
 const app = require('express')();
@@ -28,9 +27,12 @@ MongoClient.connect(mongoURL, function(err, db) {
     throw err;
   }
   console.log("Connected successfully to mongo");
+
   // Load in routes:
   app.get('/alive', require('./api/alive.js')(db));
-  app.put('/users/:id', require('./api/put-user.js')(db));
+  app.get('/spots', require('./api/get-spots.js')(db));
+  app.post('/spots', require('./api/post-spots.js')(db));
+  app.put('/spots/:id', require('./api/put-spot.js')(db));
 });
 
 // only bootstrapped, not run (for testing)
