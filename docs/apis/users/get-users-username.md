@@ -1,4 +1,3 @@
-
 # /users/:username is used when showing a users individual profile in the UI or when searching for an individual user
 
 ```javascript

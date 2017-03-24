@@ -1,4 +1,3 @@
-
 # /users is used when listing users of the application in the UI.
 
 ```javascript

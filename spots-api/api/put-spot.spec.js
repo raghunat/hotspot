@@ -15,11 +15,7 @@ describe('/spots/:id', () => {
         checkIns: "5"
       })
       .end((err, res) => {
-        if (err || !res.ok) {
-          console.log(err);
-        } else {
-          console.log('Success! ' + JSON.stringify(res.body));
-        }
+        res.body.name.should.equal('Fenton Hall');
        done();
      });
   });
