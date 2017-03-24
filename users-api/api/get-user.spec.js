@@ -3,13 +3,11 @@ const should = require('should');
 const supertest = require('supertest');
 
 describe('/users/:id', () => {
-    it('should return a users individual data', done => {
+    it('should return a users individual data by their id', done => {
       supertest(app)
-      .get('/users/123')
+      .get('/users/:id')
       .end((err, res) => {
-        res.body.username.should.equal('Username1234');
-        res.body.password.should.equal('someawesomepassword');
-        res.body.email.should.equal('email@email.com');
+        res.body.should.be.an.Object
         done();
       });
     });

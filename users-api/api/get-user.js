@@ -6,9 +6,12 @@
 module.exports = function() {
   return function(req, res) {
     res.json({
-      username: 'Username1234',
-      password: 'someawesomepassword',
-      email: 'email@email.com'
+      people.find({_id: req.params.id}).toArray(function(err, result) {
+        if(err) {
+          throw err;
+        }
+        res.json(result[0]);
+      });
     });
   }
 }
