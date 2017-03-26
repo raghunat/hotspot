@@ -4,13 +4,18 @@
 // post-user.js
 module.exports = function(db) {
     return function(req, res) {
-        var user = db.collection('users');
+        let user = db.collection('users');
 
-        user.insert(req.body).toArray(function(err, result) {
-            if(err) throw err;
-
-            console.log("Created User:", result);
-            res.json(result);
+        user.insert(req.body, function(err, result) {
+            if(err) {
+                res.status(500).json({
+                   code: "DB Error",
+                    err: err
+                });
+            } else {
+                console.log("Created User:", result);
+                res.json(result);
+            }
         });
     };
-}
+};

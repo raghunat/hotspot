@@ -14,13 +14,16 @@ require('dotenv').config({
 
 // Connection URL
 const mongoURL = `mongodb://${process.env.MONGO_USER}:${process.env.MONGO_PASS}@ds119210.mlab.com:19210/hotspotdb`;
-
 // Allow Cross origin requests
 app.use(cors());
 
 // Allow JSON request bodies
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded());
+
+
+
+
 
 // Use connect method to connect to the server
 MongoClient.connect(mongoURL, function(err, db) {
