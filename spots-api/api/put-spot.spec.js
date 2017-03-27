@@ -5,17 +5,17 @@ const should = require('should');
 const supertest = require('supertest');
 
 describe('/spots/:id', () => {
-  it('should return a response object', done => {
+  it('should update an individual spot', done => {
     supertest(app)
-      .put('/spots/10')
+      .put('/spots/:id')
       .send ({
-        id: 10,
+        _id: 10,
         location: "42.4509922,-79.3383331",
         name: "Fenton Hall",
         checkIns: "5"
       })
       .end((err, res) => {
-        res.body.name.should.equal('Fenton Hall');
+        res.body.should.be.an.Object;
        done();
      });
   });
