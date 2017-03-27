@@ -1,8 +1,12 @@
 //post-spots.js
 
-module.exports = function() {
-  // Returns an express req/res callback function
+module.exports = function(db) {
   return function(req, res) {
-       res.json(req.body);
+    res.json(req.body);
+    var spots = db.collection('spots');
+    spots.insert({req.body}, function(err, result) {
+      if(err) throw err;
+      res.json(result);
+    });
   }
-}
+};
