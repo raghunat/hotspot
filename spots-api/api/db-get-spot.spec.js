@@ -1,13 +1,15 @@
+// db-get-spot.spec.js
 const app = require('../app.js');
 const should = require('should');
 const supertest = require('supertest');
 
-describe('/alive', () => {
-  it('should return an alive message', done => {
+describe('/spots/:id', () => {
+  it('should return a spot from db', (done) => {
     supertest(app)
-      .get('/alive/2')
+      .get('/spots/1')
       .end((err, res) => {
-        res.text.should.equal('Johnny Five is Alive!');
+        if(err) throw err;
+        res.body.should.be.an.Object;
         done();
       });
   });

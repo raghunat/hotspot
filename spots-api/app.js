@@ -28,17 +28,13 @@ MongoClient.connect(mongoURL, function(err, db) {
   }
   console.log("Connected successfully to mongo");
 
-<<<<<<< HEAD
-app.get('/spots/:id', require('./api/get-spot.js')());
-
-=======
   // Load in routes:
   app.get('/alive', require('./api/alive.js')(db));
   app.get('/spots', require('./api/get-spots.js')(db));
+  app.get('/spots/:id', require('./api/db-get-spot.js')(db));
   app.post('/spots', require('./api/post-spots.js')(db));
   app.put('/spots/:id', require('./api/put-spot.js')(db));
 });
->>>>>>> 998dc4cd00c296f707e9d615857d9ece4318cb06
 
 // only bootstrapped, not run (for testing)
 module.exports = app;
