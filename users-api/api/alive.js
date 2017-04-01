@@ -1,3 +1,4 @@
+
 // api/alive.js
 
 module.exports = function(db) {
