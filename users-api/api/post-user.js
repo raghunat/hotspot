@@ -9,7 +9,7 @@ module.exports = function(db) {
         user.insert(req.body, function(err, result) {
             if(err) {
                 res.status(500).json({
-                   code: "DB Error",
+                   code: "DbError",
                     err: err
                 });
             } else {
