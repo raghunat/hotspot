@@ -1,12 +1,15 @@
-module.exports = function() {
+module.exports = function(db) {
   return function(req, res) {
-    // put json here
-    //
-    res.json({
-          "id": `${req.params.id}`,
-          "location": [12.34, 56.78],
-          "name": "alsufyani",
-          "chekcIns": "true"
-      });
-  }
-}
+    var spots = db.collections('spots');
+    spots.findOne({_id:req.params.id}, (err, result) => {
+      if(err) {
+        return res.status(500).json({
+          code: 'DbError',
+          err: err
+        });
+      };
+
+      res.json(result[0]);
+    });
+  };
+};
