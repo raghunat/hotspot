@@ -21,10 +21,6 @@ app.use(cors());
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded());
 
-<<<<<<< HEAD
-// Load in routes:
-app.get('/alive', require('./api/alive.js')());
-=======
 // Use connect method to connect to the server
 MongoClient.connect(mongoURL, function(err, db) {
   if (err) {
@@ -36,7 +32,6 @@ MongoClient.connect(mongoURL, function(err, db) {
   app.get('/users', require('./api/get-users.js')(db));
   app.put('/users/:id', require('./api/put-user.js')(db));
 });
->>>>>>> 51ec83ef19c011511a7f7bc91bcf408b73343675
 
 // only bootstrapped, not run (for testing)
 module.exports = app;
