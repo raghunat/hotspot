@@ -36,6 +36,7 @@ MongoClient.connect(mongoURL, function(err, db) {
   // Load in routes:
   app.get('/alive', require('./api/alive.js')(db));
   app.get('/spots', require('./api/get-spots.js')(db));
+  app.get('/spots/:id', require('./api/db-get-spot.js')(db));
   app.post('/spots', require('./api/post-spots.js')(db));
   app.put('/spots/:id', require('./api/put-spot.js')(db));
 });
