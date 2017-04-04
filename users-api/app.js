@@ -29,6 +29,7 @@ MongoClient.connect(mongoURL, function(err, db) {
   console.log("Connected successfully to mongo");
   // Load in routes:
   app.get('/alive', require('./api/alive.js')(db));
+  app.get('/users', require('./api/get-users.js')(db));
   app.put('/users/:id', require('./api/put-user.js')(db));
 });
 

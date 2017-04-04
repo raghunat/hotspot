@@ -27,7 +27,6 @@ MongoClient.connect(mongoURL, function(err, db) {
     throw err;
   }
   console.log("Connected successfully to mongo");
-
   // Load in routes:
   app.get('/alive', require('./api/alive.js')(db));
   app.get('/spots', require('./api/get-spots.js')(db));
