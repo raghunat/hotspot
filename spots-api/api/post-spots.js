@@ -6,7 +6,7 @@ module.exports = function(db) {
     spots.insert(req.body, function(err, result) {
       if(err) {
         res.status(500).json{(
-          code: "dbError",
+          code: "DbError",
           err: err
         )};
       } else {
