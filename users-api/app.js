@@ -1,16 +1,8 @@
-
-//app.js
-//Bootstrapping the express application
-//load all routes
-
 // app.js
 // Bootstrapping the express application
-<<<<<<< HEAD
 // Loads all routes
 
 
-=======
->>>>>>> 998dc4cd00c296f707e9d615857d9ece4318cb06
 const app = require('express')();
 const cors = require('cors');
 const bodyParser = require('body-parser');
