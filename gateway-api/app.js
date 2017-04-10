@@ -30,7 +30,7 @@ MongoClient.connect(mongoURL, function(err, db) {
 
   // Load in routes:
   app.get('/alive', require('./api/alive.js')(db));
-  app.post('/check-in/spot_id', require('./api/check-in.js')(db));
+  app.post('/check-in/spot_id', require('./api/post-check-in.js')(db));
 });
 
 // only bootstrapped, not run (for testing)
