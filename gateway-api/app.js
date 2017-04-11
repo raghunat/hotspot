@@ -6,7 +6,7 @@ const bodyParser = require('body-parser');
 const MongoClient = require('mongodb').MongoClient;
 const path = require('path');
 
-// Load environment secret variables
+//Load environment secret variables
 require('dotenv').config({
   path: path.join(__dirname, '../.env')
 });
@@ -30,6 +30,7 @@ MongoClient.connect(mongoURL, function(err, db) {
 
   // Load in routes:
   app.get('/alive', require('./api/alive.js')(db));
+  app.get('/my-profile/:id', require('./api/get-my-profile.js')(db));
 });
 
 // only bootstrapped, not run (for testing)
