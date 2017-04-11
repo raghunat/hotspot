@@ -30,6 +30,7 @@ MongoClient.connect(mongoURL, function(err, db) {
 
   // Load in routes:
   app.get('/alive', require('./api/alive.js')(db));
+  app.post('/new-user',require('./api/new-user.js')(db))
 });
 
 // only bootstrapped, not run (for testing)
