@@ -1,5 +1,4 @@
 //api/new-user.js
-
 module,exports = function(db) {
   return function(req,res){
     const superagent = require('superagent')
