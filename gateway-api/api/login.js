@@ -8,21 +8,21 @@ module.exports = function(db) {
         superagent
             .get('http://localhost:3000/users?email=' + req.body.email)
             .set('Accept', 'application/json')
+            .send({password: req.body.password})
             .end((err, agentResponse) => {
                 if(err) {
-                    return res.status(403).json({
-                        code: 'Forbidden',
-                        message: 'No user with that email'
-                    });
-                }
-
-                if(agentResponse.body.password == req.body.password) {
-                    return res.json({_id: 'someId'});
+                    return res.status(500).json(err);
                 } else {
-                    return res.status(403).json({
-                        code: 'Forbidden',
-                        message: 'Wrong Password'
-                    });
+                    if(agentResponse.code == 'Forbidden') {
+                        return res.status(403).json({
+                           code: agentResponse.code,
+                            message: agentResponse.message
+                        });
+                    } else {
+                        return res.status(200).json({
+                            _id: agentResponse._id
+                        });
+                    }
                 }
             });
     };
