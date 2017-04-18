@@ -11,7 +11,7 @@ require('dotenv').config({
   path: path.join(__dirname, '../.env')
 });
 
-// Connection URL
+// Connection URLs
 const mongoURL = `mongodb://${process.env.MONGO_USER}:${process.env.MONGO_PASS}@ds119210.mlab.com:19210/hotspotdb`;
 
 // Allow Cross origin requests
@@ -29,9 +29,12 @@ MongoClient.connect(mongoURL, function(err, db) {
   console.log("Connected successfully to mongo");
   // Load in routes:
   app.get('/alive', require('./api/alive.js')(db));
-  app.get('/users/:id', require('./api/get-user.js')(db));
+  app.get('/users', require('./api/get-users.js')(db));
   app.put('/users/:id', require('./api/put-user.js')(db));
+  app.post('/users', require('./api/post-user.js')(db));
+  app.get('/users', require('./api/login.js')(db));
 });
 
 // only bootstrapped, not run (for testing)
+
 module.exports = app;

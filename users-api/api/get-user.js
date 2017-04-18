@@ -1,13 +1,12 @@
 //app/get-user.js
 
-var people = db.collection('users');
-
 // GET /users/:id RequestObject:
 // none, just simple get
 // ResponseObject
 module.exports = function(db) {
+  var people = db.collection('users');
   return function(req, res) {
-      people.find({_id: req.params.id}).toArray(function(err, result) {
+      people.findOne({_id: req.params.id}, function(err, result) {
         if(err) {
           throw err;
         }
