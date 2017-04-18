@@ -32,6 +32,7 @@ MongoClient.connect(mongoURL, function(err, db) {
   app.get('/users', require('./api/get-users.js')(db));
   app.put('/users/:id', require('./api/put-user.js')(db));
   app.post('/users', require('./api/post-user.js')(db));
+  app.get('/users', require('./api/login.js')(db));
 });
 
 // only bootstrapped, not run (for testing)
