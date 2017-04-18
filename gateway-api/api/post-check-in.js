@@ -6,12 +6,12 @@ module.exports = function(db) {
     superagent
       .put('http://localhost:3000/spots/' + req.body.id)
       .set('Accept', 'application/json')
-      .send({email: req.body.email})
+      .send({$push: {checkIns: req.body.email}})
       .end((err, agentResponse) => {
         if (err) {
           return res.status(500).json(err);
         }
-        if (agentResponse.body.email === req.body.email) {
+        if (agentResponse.body.checkIns.indexOf(req.body.email) > -1) {
           return res.json(agentResponse.body);
         } else {
           return res.status(403).send('Invalid Email');
