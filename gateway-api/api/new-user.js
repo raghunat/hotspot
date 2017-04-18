@@ -3,17 +3,17 @@ module,exports = function(db) {
   return function(req,res){
     const superagent = require('superagent')
     superagent
-    .post('http://localhost:3000/new-user')
+    .post('http://localhost:3000/users')
     .send({
       email: '123456@test.com',
       password:'123456'
-  })
-    .set('Accept', 'application/json')
+    })
     .end((err,agentResponse)=>{
       if(err){
         return res.status(500).json(err)
       }else{
-        return res.json({SpotObject})
+        delete agentResponse.body.password; // remove the password from the response
+        return res.json(agentResponse.body);
       }
     })
   }
