@@ -10,18 +10,7 @@ describe('/spots', () => {
     .get('/spots')
     .expect(200)
     .end((err, res) => {
-      res.body[0].id.should.equal(
-        '12345'
-      );
-      res.body[0].location[0][0].should.equal(
-        12.34
-      );
-      res.body[0].name.should.equal(
-        'Starbucks'
-      );
-      res.body[0].checkIns[0].should.equal(
-        'user1'
-      );
+      res.body.should.be.an.Array;
       done();
     });
   });
