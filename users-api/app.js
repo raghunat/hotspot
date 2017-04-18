@@ -1,4 +1,3 @@
-
 // app.js
 // Bootstrapping the express application
 const app = require('express')();
@@ -36,4 +35,5 @@ MongoClient.connect(mongoURL, function(err, db) {
 });
 
 // only bootstrapped, not run (for testing)
+
 module.exports = app;
