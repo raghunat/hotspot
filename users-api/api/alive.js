@@ -1,4 +1,5 @@
 // api/alive.js
+
 module.exports = function(db) {
   // Returns an express req/res callback function
   return function(req, res) {
