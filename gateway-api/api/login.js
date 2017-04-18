@@ -7,7 +7,6 @@ module.exports = function(db) {
 
         superagent
             .get('http://localhost:3000/users?email=' + req.body.email)
-            .set('Accept', 'application/json')
             .send({password: req.body.password})
             .end((err, agentResponse) => {
                 if(err) {
