@@ -1,3 +1,4 @@
+
 // app.js
 // Bootstrapping the express application
 const app = require('express')();
@@ -21,9 +22,6 @@ app.use(cors());
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded());
 
-// Load in routes:
-app.get('/alive', require('./api/alive.js')());
-
 // Use connect method to connect to the server
 MongoClient.connect(mongoURL, function(err, db) {
   if (err) {
@@ -32,7 +30,9 @@ MongoClient.connect(mongoURL, function(err, db) {
   console.log("Connected successfully to mongo");
   // Load in routes:
   app.get('/alive', require('./api/alive.js')(db));
+  app.get('/users', require('./api/get-users.js')(db));
   app.put('/users/:id', require('./api/put-user.js')(db));
+  app.post('/users', require('./api/post-user.js')(db));
 });
 
 // only bootstrapped, not run (for testing)
