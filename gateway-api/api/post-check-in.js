@@ -12,7 +12,7 @@ module.exports = function(db) {
           return res.status(500).json(err);
         }
         if (agentResponse.body.email === req.body.email) {
-          return res.json({SpotObject});
+          return res.json(agentResponse.body);
         } else {
           return res.status(403).send('Invalid Email');
         }
