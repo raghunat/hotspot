@@ -1,4 +1,3 @@
-
 // app.js
 // Bootstrapping the express application
 const app = require('express')();
@@ -12,18 +11,15 @@ require('dotenv').config({
   path: path.join(__dirname, '../.env')
 });
 
-// Connection URL
+// Connection URLs
 const mongoURL = `mongodb://${process.env.MONGO_USER}:${process.env.MONGO_PASS}@ds119210.mlab.com:19210/hotspotdb`;
+
 // Allow Cross origin requests
 app.use(cors());
 
 // Allow JSON request bodies
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded());
-
-
-
-
 
 // Use connect method to connect to the server
 MongoClient.connect(mongoURL, function(err, db) {
@@ -37,7 +33,9 @@ MongoClient.connect(mongoURL, function(err, db) {
   app.get('/users/:id', require('./api/get-user-profile.js')(db));
   app.put('/users/:id', require('./api/put-user.js')(db));
   app.post('/users', require('./api/post-user.js')(db));
+  app.get('/users', require('./api/login.js')(db));
 });
 
 // only bootstrapped, not run (for testing)
+
 module.exports = app;
