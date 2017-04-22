@@ -34,7 +34,7 @@ MongoClient.connect(mongoURL, function(err, db) {
   app.post('/new-user',require('./api/new-user.js')(db))
   app.post('/check-in/spot_id', require('./api/post-check-in.js')(db));
   app.post('/login', require('./api/login.js')(db));
-  app.get('/nearby-spots', require('./api/nearby-spots.js')(db));
+  app.post('/nearby-spots', require('./api/nearby-spots.js')(db));
 });
 
 // only bootstrapped, not run (for testing)
