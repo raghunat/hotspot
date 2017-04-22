@@ -4,7 +4,6 @@ const app = require('../app.js');
 const should = require('should');
 const supertest = require('supertest');
 
-
 describe('DELETE /spots/:id', () => {
 
   it('should delete a spot', done => {
