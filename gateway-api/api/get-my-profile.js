@@ -4,18 +4,12 @@ module.exports = function(db) {
 
       superagent
             .get('http://localhost:3000/users/' + req.body.id)
-            .set('Accept', 'application/json')
             .end((err, agentResponse) => {
                 if(err) {
                   return res.status(500).json(err);
                 } else {
-                  if(agentResponse.statusOnUser == 'fail') {
-                    return res.send(agentResponse.dbResult);
-                  } else if(agentResponse.statusOnUser == 'success') {
-                    return res.json(agentResponse.result);
-                  } else {
-                    return res.send('Some error');
-                  }
+                  delete agentResponse.body.password;
+                  res.json(agentResponse.body);
                 }
             });
   };
