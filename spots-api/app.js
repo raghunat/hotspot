@@ -21,11 +21,6 @@ app.use(cors());
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded());
 
-<<<<<<< HEAD
-// Load in routes:
-app.get('/alive', require('./api/alive.js')());
-app.delete('/spots/:id', require('./api/delete-spot.js')());
-=======
 // Use connect method to connect to the server
 MongoClient.connect(mongoURL, function(err, db) {
   if (err) {
@@ -40,7 +35,6 @@ MongoClient.connect(mongoURL, function(err, db) {
   app.post('/spots', require('./api/post-spots.js')(db));
   app.put('/spots/:id', require('./api/put-spot.js')(db));
 });
->>>>>>> 998dc4cd00c296f707e9d615857d9ece4318cb06
 
 // only bootstrapped, not run (for testing)
 module.exports = app;
