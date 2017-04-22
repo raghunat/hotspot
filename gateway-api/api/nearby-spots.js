@@ -13,7 +13,6 @@ module.exports = function(db) {
           err: err
         });
       } else {
-          res.json(spots);
           var spotsToReturn = [];
           for(var i = 0; i < spots.length; i++) {
             // res.body.location is the array the latitude and longitude from the user
