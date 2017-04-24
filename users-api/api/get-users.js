@@ -1,13 +1,17 @@
 //get-users.js
 
-module.exports = function() {
-    
-    return function(req, res) {
-        res.json([{
-            //Sample data as there are no database yet 
-            username: 'fred',
-            password: 'fredonia1826',
-            email: 'freddie@fredonia.edu'
-        }]);
-    }
+module.exports = function(db) {
+  const users = db.collection('users');
+  return function(req, res) {
+    users.find(req.query || {}).toArray((err, users) => {
+      if (err) {
+        res.status(500).json({
+          code: 'DbError',
+          err: err
+        });
+      } else {
+        res.json(users);
+      }
+    });
+  }
 }

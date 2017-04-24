@@ -3,7 +3,8 @@
 const app = require('express')();
 const cors = require('cors');
 const bodyParser = require('body-parser');
-const MongoClient = require('mongodb').MongoClient;
+const mongo = require('mongodb');
+const MongoClient = mongo.MongoClient;
 const path = require('path');
 
 // Load environment secret variables
@@ -27,12 +28,13 @@ MongoClient.connect(mongoURL, function(err, db) {
     throw err;
   }
   console.log("Connected successfully to mongo");
+  db.ObjectId = mongo.ObjectId;
   // Load in routes:
   app.get('/alive', require('./api/alive.js')(db));
   app.get('/users', require('./api/get-users.js')(db));
+  app.get('/users/:id', require('./api/get-user')(db));
   app.put('/users/:id', require('./api/put-user.js')(db));
   app.post('/users', require('./api/post-user.js')(db));
-  app.get('/users', require('./api/login.js')(db));
 });
 
 // only bootstrapped, not run (for testing)

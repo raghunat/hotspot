@@ -4,7 +4,7 @@ module.exports = function(db) {
     var superagent = require('superagent');
 
     superagent
-      .put('http://localhost:3000/spots/' + req.body.id)
+      .put(`http://localhost:${process.env.SPOTS_PORT || 3000}/spots/` + req.params.id)
       .set('Accept', 'application/json')
       .send({$push: {checkIns: req.body.email}})
       .end((err, agentResponse) => {
