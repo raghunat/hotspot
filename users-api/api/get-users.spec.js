@@ -11,9 +11,7 @@ describe('/users', () => {
         .get('/users')
         .expect(200)
         .end((err, res) => {
-            res.body[0].username.should.equal('fred');
-            res.body[0].password.should.equal('fredonia1826');
-            res.body[0].email.should.equal('freddie@fredonia.edu');
+            res.body.should.be.an.Array;
         done();
         });
     });
