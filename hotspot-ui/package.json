@@ -4,7 +4,7 @@
   "license": "MIT",
   "scripts": {
     "ng": "ng",
-    "start": "static-server dist -p=4200",
+    "start": "static-server dist --p=4200",
     "build": "ng build",
     "test": "ng test",
     "lint": "ng lint",
