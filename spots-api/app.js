@@ -3,7 +3,8 @@
 const app = require('express')();
 const cors = require('cors');
 const bodyParser = require('body-parser');
-const MongoClient = require('mongodb').MongoClient;
+const mongo = require('mongodb');
+const MongoClient = mongo.MongoClient;
 const path = require('path');
 
 // Load environment secret variables
@@ -27,10 +28,12 @@ MongoClient.connect(mongoURL, function(err, db) {
     throw err;
   }
   console.log("Connected successfully to mongo");
+  db.ObjectId = mongo.ObjectId;
 
   // Load in routes:
   app.get('/alive', require('./api/alive.js')(db));
   app.get('/spots', require('./api/get-spots.js')(db));
+  app.get('/spots/:id', require('./api/get-spot.js')(db));
   app.post('/spots', require('./api/post-spots.js')(db));
   app.put('/spots/:id', require('./api/put-spot.js')(db));
 });
