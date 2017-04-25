@@ -34,6 +34,7 @@ MongoClient.connect(mongoURL, function(err, db) {
   app.get('/alive', require('./api/alive.js')(db));
   app.get('/my-profile/:id', require('./api/get-my-profile.js')(db));
   app.post('/new-user', require('./api/new-user.js')(db))
+  app.post('/create-spot', require('./api/create-spot.js')(db))
   app.post('/check-in/:id', require('./api/post-check-in.js')(db));
   app.post('/login', require('./api/login.js')(db));
   app.post('/nearby-spots', require('./api/nearby-spots.js')(db));

@@ -64,4 +64,10 @@ html, body {
 
 .center {
   text-align: center;
+  margin: auto;
+}
+
+.sebm-google-map-container * {
+  min-height: 100%;
+  position: relative;
 }
