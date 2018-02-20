@@ -6,10 +6,13 @@
 const app = require('express')();
 const cors = require('cors');
 const bodyParser = require('body-parser');
+<<<<<<< HEAD
 =======
 const app = require('express')();
 const cors = require('cors');
 const bodyParser = require('body-parser');
+=======
+>>>>>>> ec6fc23b477a0989faf0482e2d9cfc64b90366d2
 const mongo = require('mongodb');
 const MongoClient = mongo.MongoClient;
 const path = require('path');
