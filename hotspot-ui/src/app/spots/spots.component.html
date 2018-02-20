@@ -1,0 +1,24 @@
+<section id="spots" fxLayout="column"
+         fxLayoutAlign="center center">
+  <section id="spot-map" fxFlex="60" style="width:100%;">
+  </section>
+  <section id="spot-list" fxFlex fxLayout="column"
+           fxLayoutAlign="center center" style="width: 100%">
+    <md-spinner class="center" *ngIf="loadingSpots"></md-spinner>
+    <md-card *ngIf="!loadingSpots" style="width: 90%;">
+      <div class="center" *ngIf="spots.length == 0">
+        <p>You have no nearby spots</p>
+      </div>
+      <md-list>
+        <md-list-item *ngFor="let spot of spots">
+          {{spot.name}}&nbsp;
+          <i>{{spot.checkIns.length}} users here.</i>
+        </md-list-item>
+      </md-list>
+      <div class="center">
+        <button md-raised-button color="primary" (click)="addSpot()">Add Spot
+        </button>
+      </div>
+    </md-card>
+  </section>
+</section>

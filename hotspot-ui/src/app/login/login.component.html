@@ -1,0 +1,19 @@
+<md-card id="login" class="super-center">
+  <md-card-title>Hotspot Login</md-card-title>
+  <md-card-content>
+    <md-input-container>
+      <input mdInput placeholder="your@email.com" name="email"
+             [(ngModel)]="email">
+    </md-input-container>
+
+    <md-input-container>
+      <input mdInput placeholder="shhhh" name="password" type="password"
+             [(ngModel)]="password">
+    </md-input-container>
+
+    <div class="center">
+      <button md-raised-button color="primary" (click)="login()">Sign In
+      </button>
+    </div>
+  </md-card-content>
+</md-card>

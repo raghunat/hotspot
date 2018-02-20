@@ -3,7 +3,8 @@
 const app = require('express')();
 const cors = require('cors');
 const bodyParser = require('body-parser');
-const MongoClient = require('mongodb').MongoClient;
+const mongo = require('mongodb');
+const MongoClient = mongo.MongoClient;
 const path = require('path');
 
 // Load environment secret variables
@@ -11,7 +12,7 @@ require('dotenv').config({
   path: path.join(__dirname, '../.env')
 });
 
-// Connection URL
+// Connection URLs
 const mongoURL = `mongodb://${process.env.MONGO_USER}:${process.env.MONGO_PASS}@ds119210.mlab.com:19210/hotspotdb`;
 
 // Allow Cross origin requests
@@ -27,10 +28,15 @@ MongoClient.connect(mongoURL, function(err, db) {
     throw err;
   }
   console.log("Connected successfully to mongo");
+  db.ObjectId = mongo.ObjectId;
   // Load in routes:
   app.get('/alive', require('./api/alive.js')(db));
+  app.get('/users', require('./api/get-users.js')(db));
+  app.get('/users/:id', require('./api/get-user')(db));
   app.put('/users/:id', require('./api/put-user.js')(db));
+  app.post('/users', require('./api/post-user.js')(db));
 });
 
 // only bootstrapped, not run (for testing)
+
 module.exports = app;
